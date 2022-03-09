@@ -1,6 +1,15 @@
-const SignUp =() => {
+
+import AppLayout from "../components/AppLayout";
+import Head from 'next/head';
+
+const SignUp = () => {
     return (
-      <div>Sign up Page</div>
+       <AppLayout>
+        <Head>
+        <title>Sign up |NodeBird</title>
+    </Head>
+        <div>Sign up</div>
+        </AppLayout>
     )
 }
 
