@@ -36,7 +36,7 @@ const LoginForm = ({setIsLoggedIn}) => {
                 <Input name ="user-id" value ={id} onChange={onChangeId} required />
             </div>
             <div>
-                <lavel htmlFor="user-password" >Password</lavel>
+                <label htmlFor="user-password" >Password</label>
             </div>
             <div >
                 <Input name ="user-password"
