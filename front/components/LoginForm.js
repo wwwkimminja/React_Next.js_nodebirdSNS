@@ -2,6 +2,8 @@ import { useCallback, useState } from 'react';
 import { Form , Input, Button } from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
+import useInput from '../hooks/useInput';
+import PropTypes from 'prop-types';
 
 {/* div component */}
 const ButtonWrapper = styled.div`
@@ -12,15 +14,11 @@ const FormWrapper = styled(Form)`
 padding:10px
 `;
 const LoginForm = ({setIsLoggedIn}) => {
-    const [id, setId] = useState('');
-    const [password, setPassword] = useState('');
+    {/* const [id, setId] = useState('');*/}
+    const [id, onChangeId] = useInput('');
+    {/*const [password, setPassword] = useState('');*/}
+    const [password,onChangePassword] = useInput('');
 
-    const onChangeId = useCallback((e) => {
-        setId(e.target.value);
-    }, [])
-    const onChangePassword = useCallback((e) => {
-        setPassword(e.target.value);
-    }, []);
 
     const onSubmitForm =useCallback((e)=>{
         console.log(id,password);
@@ -54,5 +52,9 @@ const LoginForm = ({setIsLoggedIn}) => {
     );
 
 };
+
+LoginForm.propTypes={
+    setIsLoggedIn: PropTypes.func.isRequired,
+}
 
 export default LoginForm;
