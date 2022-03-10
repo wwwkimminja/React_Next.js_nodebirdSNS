@@ -1,12 +1,21 @@
+import {useState} from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { Menu, Input, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
+import UserProfile from '../components/UserProfile';
+import LoginForm from '../components/LoginForm';
+import styled from 'styled-components';
+
+const SerchInput = styled(Input.Search)`
+vertical-align : middel;
+`;
 
 
 
 
 const AppLayout = ({ children }) => {
+    const [isLogedIn,setIsLogedIn] = useState(false);
     return (
         <div>
             <Menu mode="horizontal">
@@ -17,7 +26,7 @@ const AppLayout = ({ children }) => {
                     <Link href="/profile">my profile</Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <Input.Search enterButton style={{ verticalAlign: "middle" }} />
+                    <SerchInput enterButton  />
                 </Menu.Item>
                 <Menu.Item key="signup">
                     <Link href="/signup">sign up</Link>
@@ -25,7 +34,7 @@ const AppLayout = ({ children }) => {
             </Menu>
             <Row gutter={8}>
                 <Col xs={24} md={6} >
-                    Left
+                {isLogedIn ? <UserProfile></UserProfile>:<LoginForm></LoginForm>}
                 </Col>
                 <Col xs={24} md={12} >
                     {children}
