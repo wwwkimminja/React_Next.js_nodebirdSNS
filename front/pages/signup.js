@@ -11,7 +11,7 @@ color:red;
 `
 
 const SignUp = () => {
-    const [id,onChangeId]=useInput('');
+    const [id,onChangeId]= useInput('');
     const [nickname,onChangeNickname]=useInput('');
     const [password,onChangePassword] = useInput('');
     const [passwordCheck, setPasswordCheck]= useState('');
