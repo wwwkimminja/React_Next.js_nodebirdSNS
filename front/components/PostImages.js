@@ -29,7 +29,7 @@ const PostImages =({images})=>{
             <>
             <img role="presentation" width ="50%" src={images[0].src} alt={images[0].src }onClick={onZoom}/>
             <img role="presentation" width ="50%"src={images[1].src} alt={images[0].src }onClick={onZoom}/>
-            {showImagesZoom && <ImagesZoom image={images} onClose={onClose}/>}
+            {showImagesZoom && <ImagesZoom images={images} onClose={onClose}/>}
             </>
         )
     }
@@ -48,7 +48,7 @@ const PostImages =({images})=>{
 
         </div>
         </div>
-        {showImagesZoom && <ImagesZoom image={images} onClose={onClose}/>}
+        {showImagesZoom && <ImagesZoom images={images} onClose={onClose}/>}
         </>
     )
 
